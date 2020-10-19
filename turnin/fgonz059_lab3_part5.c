@@ -26,7 +26,7 @@ int main(void) {
 		if ( (tempD >= 0x23)) { tempB = tempB | 0x02; } // IF WEIGHT >= 70
 		if ( tempD >= 0x03) { tempB = tempB & 0xFD; 
 				      tempB = tempB | 0x04;}
-		if (tempD < 0x02) { tempB = tempB & 0xF9; } // weight <= 5, then B2B1 = 00
+		if (tempD < 0x03) { tempB = tempB & 0xF9; } // weight <= 5, then B2B1 = 00
 
 		PORTB = tempB;
 	}
