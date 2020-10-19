@@ -22,7 +22,7 @@ int main(void) {
 	unsigned char i = 0;
 	
 	while (1) {
-		tempA = PINA;
+		tempA = PINA & 0x0F;
 		tempC = 0x00;
 		if (      (tempA == 1) || (tempA == 2) { tempC = tempC | 0x20; /* PC5 */ }
 		else if ( (tempA == 3) || (tempA == 4) { tempC = tempC | 0x30;/* PC5 PC4 */ }
