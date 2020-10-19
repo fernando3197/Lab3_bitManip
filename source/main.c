@@ -14,17 +14,20 @@
 
 int main(void) {
     
-	DDRA = 0x00; PORTA = 0xFF;
-	DDRB = 0xFF; PORTB = 0x00;
+	DDRD = 0x00; PORTD = 0xFF;
+	DDRB = 0xF6; PORTB = 0x09;
 
-	unsigned char tempA = 0x00;
+	unsigned char tempD = 0x00;
 	unsigned char tempB = 0x00;
 	
 	while (1) {
-		tempA = PINA;
-		tempB = 0x00;
-		
-		tempB = (tempB | ((tempA & 0x0F) << 4 )) | ((tempA & 0xF0) >> 4);
+		tempD = PIND;
+		tempB = PINB & 0x01;
+		if ( ((tempD & 0x23) >= 0x23)) { tempB | 0x02; } // IF WEIGHT >
+		if ((( tempD & 0x03) >= 0x03) && ((tempD & 0x23) < 0x23)) { tempB = tempB & 0xFD; temp B = temp B | 0x04;}
+		if ((tempD & 0x02) <= 0x02) { tempB & 0x09; }
+	
+		PORTD = tempD;
 		PORTB = tempB;
 	}
     return 1;
