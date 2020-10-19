@@ -23,11 +23,11 @@ int main(void) {
 	while (1) {
 		tempD = PIND;
 		tempB = PINB & 0x01;
-		if ( (tempD >= 0x23)) { tempB | 0x02; } // IF WEIGHT >= 70
-		if ( tempD >= 0x03) { tempB = tempB & 0xFD; temp B = temp B | 0x04;}
-		if (tempD < 0x02) { tempB & 0xF9; } // weight <= 5, then B2B1 = 00
-	
-		PORTD = tempD;
+		if ( (tempD >= 0x23)) { tempB = tempB | 0x02; } // IF WEIGHT >= 70
+		if ( tempD >= 0x03) { tempB = tempB & 0xFD; 
+				      tempB = temp B | 0x04;}
+		if (tempD < 0x02) { tempB = tempB & 0xF9; } // weight <= 5, then B2B1 = 00
+
 		PORTB = tempB;
 	}
     return 1;
