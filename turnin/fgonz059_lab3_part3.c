@@ -19,10 +19,9 @@ int main(void) {
 
 	unsigned char tempA = 0x00;
 	unsigned char tempC = 0x00;
-	unsigned char i = 0;
 	
 	while (1) {
-		tempA = PINA;
+		tempA = PINA & 0x0F;
 		tempC = 0x00;
 		if (      (tempA == 1) || (tempA == 2)) { tempC = tempC | 0x20; /* PC5 */ }
 		else if ( (tempA == 3) || (tempA == 4)) { tempC = tempC | 0x30;/* PC5 PC4 */ }
@@ -34,6 +33,7 @@ int main(void) {
 		if ( tempA <= 4 ) { tempC = tempC | 0x40; /* PC6 */ } // Low fuel
 	
 		// Part 2
+		tempA = PINA;
 		if ( (tempA & 0x70 ) == 0x30 ) { tempC = tempC | 0x80; } 		
 	
 		PORTC = tempC;			
